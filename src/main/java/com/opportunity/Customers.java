@@ -1,17 +1,17 @@
 package com.opportunity;
 
 public class Customers {
-      int customer_id;
-       String first_name;
-      String last_name;
-       String birth_date;
-       int age;
-       String gender;
-       String phone;
-       String email;
-     String city;
-     String street;
-     String building;
+     private int customer_id;
+     private String first_name;
+     private String last_name;
+     private String birth_date;
+     private int age;
+     private String gender;
+     private String phone;
+     private String email;
+     private String city;
+     private String street;
+     private String building;
 
     public Customers(int customer_id, String first_name, String last_name, String birth_date, int age, String gender, String phone, String email, String city, String street, String building) {
         this.customer_id = customer_id;
