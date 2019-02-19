@@ -33,17 +33,16 @@ public class CRUDcustomers{
 
     }
 
-    public static String createCustomers(String first_name, String last_name,
-                                         String birth_date, int age, String gender,
-                                         String phone, String email, String city,
-                                         String street, String building){
+    public static String createCustomers(Customers x){
         String query="INSERT INTO customers(first_name, last_name, birth_date, age," +
                 "gender, phone, email, city, street, building)" +
-                "values(\""+first_name+"\",\""+last_name+"\",\""+birth_date+"\","+age+",\""+gender+"\",\""+phone+"\",\""+
-                email+"\",\""+city+"\",\""+street+"\",\""+building+"\");";
+                "values(\""+x.getFirst_name()+"\",\""+x.getLast_name()+"\",\""+x.getBirth_date()+"\","+x.getAge()+",\""+x.getGender()+"\",\""+x.getPhone()+"\",\""+
+                x.getEmail()+"\",\""+x.getCity()+"\",\""+x.getStreet()+"\",\""+x.getBuilding()+"\");";
         System.out.println("INSERT complete");
         return query;
     }
+
+
 
 
     public static String deleteCustomers(int id){
@@ -52,26 +51,26 @@ public class CRUDcustomers{
         return query;
     }
 
-    public static String updateCustomers(String first_name, String last_name,
-                                         String birth_date, int age, String gender,
-                                         String phone, String email, String city,
-                                         String street, String building, int customer_id){
-       String query="UPDATE customers SET ";
-        if(first_name!="")query+="first_name=\""+first_name+"\"";
-        if(first_name!="")query+="last_name=\""+last_name+"\"";
-        if(birth_date!="")query+="birth_date=\""+birth_date+"\"";
-        if(age!=0)query+="age=\""+age+"\"";
-        if(gender!="")query+="gender=\""+gender+"\"";
-        if(phone!="")query+="phone=\""+phone+"\"";
-        if(email!="")query+="email=\""+email+"\"";
-        if(city!="")query+="city=\""+city+"\"";
-        if(street!="")query+="street=\""+street+"\"";
-        if(building!="")query+="building=\""+building+"\"";
-        query+=" WHERE customer_id="+customer_id;
+
+    public static String updateCustomers(Customers x){
+        String query="UPDATE customers SET ";
+        if(x.getFirst_name()!=null)query+="first_name=\""+x.getFirst_name()+"\"";
+        if(x.getLast_name()!=null)query+="last_name=\""+x.getLast_name()+"\"";
+        if(x.getBirth_date()!=null)query+="birth_date=\""+x.getBirth_date()+"\"";
+        if(x.getAge()!=0)query+="age=\""+x.getAge()+"\"";
+        if(x.getGender()!=null)query+="gender=\""+x.getGender()+"\"";
+        if(x.getPhone()!=null)query+="phone=\""+x.getPhone()+"\"";
+        if(x.getEmail()!=null)query+="email=\""+x.getEmail()+"\"";
+        if(x.getCity()!=null)query+="city=\""+x.getCity()+"\"";
+        if(x.getStreet()!=null)query+="street=\""+x.getStreet()+"\"";
+        if(x.getBuilding()!=null)query+="building=\""+x.getBuilding()+"\"";
+        query+=" WHERE customer_id="+x.getCustomer_id();
         System.out.println("update comlete");
+        System.out.println(query);
         return query;
 
     }
+
 
     public  static List<Customers> getAll(Statement statement){
 

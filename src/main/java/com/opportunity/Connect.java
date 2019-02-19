@@ -11,6 +11,7 @@ public class Connect {
             try{
             return DriverManager.getConnection(url, login, pass);
         }catch (Exception e){
+                System.out.println(e);
                 return null;
             }
     }

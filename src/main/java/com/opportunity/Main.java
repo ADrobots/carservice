@@ -1,11 +1,7 @@
 package com.opportunity;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
 
 
 public class Main {
@@ -17,17 +13,20 @@ public class Main {
                 Statement statement = connection.createStatement();
 
                 //create customer
-                statement.executeUpdate(CRUDcustomers.createCustomers("Tony", "Gibson", "1989.12.09", 19, "M", "345-678",
-                        "vox15v@", "Ekb", "St.Bolshew", "yes"));
+                statement.executeUpdate(CRUDcustomers.createCustomers(new Customers("Anton", "", "1989.12.09", 19, "M", "999-000",
+                        "", "Ekb", "", "")));
 
 
 
                 //delete customer
-                statement.executeUpdate(CRUDcustomers.deleteCustomers(18));
+                statement.executeUpdate(CRUDcustomers.deleteCustomers(19));
 
                 //update customer
-               statement.executeUpdate(CRUDcustomers.updateCustomers("", "", "", 0,
-                        "", "", "", "Moscow", "", "", 1));
+                Customers cust=new Customers();
+                cust.setCustomer_id(2);
+                cust.setCity("Tumen");
+
+               statement.executeUpdate(CRUDcustomers.updateCustomers(cust));
 
                 //get customer
                 CRUDcustomers.getCustomer(1);
